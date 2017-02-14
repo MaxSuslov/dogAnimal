@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Aban is a barking animal-dog</title>
+</head>
+<body>
+
+	<script>
+	function Animal(name) {
+	this.name = name;
+	}
+
+	Animal.prototype.getName = function (name) {
+		return this.name;
+	}
+
+	function Dog(name) {
+		this.name = name;
+	}
+
+	Dog.prototype = Object.create(Animal.prototype);
+	Dog.prototype.constructor = Dog;
+	Dog.prototype.bark = function(name) {
+		return ('Dog ' + this.getName(name) + ' is barking');
+	}
+
+	var dog = new Dog ('Aban');
+
+	var dogName = dog.getName();
+	var isBarking = dog.bark();
+
+	alert (dogName);
+	alert (isBarking);
+
+	</script>
+	
+</body>
+</html>
